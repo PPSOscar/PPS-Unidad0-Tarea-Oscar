@@ -1,165 +1,168 @@
-# 📘 1. Git — Creación del Repositorio y Estructura del Proyecto
+# 🌐 3. Publicación de la Documentación con GitHub Pages
 
-Este documento recoge **todo el desarrollo del apartado Git**, explicando paso a paso cómo se ha creado y configurado el repositorio del proyecto, así como la estructura inicial solicitada en la tarea.
-
----
-
-# 🎯 1. Objetivos del apartado Git
-
-Este apartado permite aprender:
-
-- Cómo crear y clonar un repositorio en GitHub.
-- Cómo organizar correctamente la estructura de un proyecto.
-- Cómo realizar commits y subir cambios.
-- Cómo añadir colaboradores.
-- Cómo configurar Git en local.
-
-Es la base sobre la cual se construye todo el proyecto.
+Este documento recoge **todo el desarrollo del apartado GitHub Pages**, explicando cómo se ha configurado la publicación automática de la documentación generada con MkDocs mediante la rama `gh-pages`.
 
 ---
 
-# 🏗️ 2. Creación del repositorio en GitHub
+# 🎯 1. Objetivo de GitHub Pages
 
-El primer paso consistió en crear un repositorio en GitHub:
+El objetivo de este apartado es:
 
-1. Acceder a GitHub → **New repository**.  
-2. Asignar el nombre obligatorio:
+- Publicar la web generada por MkDocs.
+- Utilizar la rama `gh-pages` creada automáticamente por GitHub Actions.
+- Permitir el acceso público a la documentación desde cualquier navegador.
+- Mantener la web siempre actualizada de forma automática.
+
+---
+
+# 📝 2. Requisito previo: tener la rama `gh-pages`
+
+GitHub Pages funciona utilizando una rama especial llamada:
 
 ```
-PPS-Unidad0-Tarea-Tu_nombre
+gh-pages
 ```
 
-3. Seleccionar visibilidad **Public**.  
-4. (Opcional) Añadir README inicial.  
-5. Crear repositorio y copiar la URL HTTPS.
-
----
-
-# 💻 3. Clonado del repositorio en Kali Linux
-
-En la terminal se ejecutó:
+Esta rama **no se crea manualmente**, sino que la genera automáticamente el workflow de GitHub Actions tras ejecutar:
 
 ```bash
-git clone https://github.com/TuUsuario/PPS-Unidad0-Tarea-Tu_nombre.git
-cd PPS-Unidad0-Tarea-Tu_nombre
+mkdocs build
 ```
 
-Comprobación de que estamos en la ruta correcta:
+Para comprobar que la rama existe:
 
 ```bash
-pwd
+git fetch
+git branch -a
+```
+
+Debería aparecer:
+
+```
+remotes/origin/gh-pages
+```
+
+---
+
+# ⚙️ 3. Activación de GitHub Pages
+
+Una vez generada la rama, se configuró GitHub Pages:
+
+1. Abrir el repositorio en GitHub.
+2. Ir a **Settings**.
+3. Seleccionar la opción **Pages** en el menú lateral.
+4. En *Source* seleccionar:
+
+   - **Branch:** `gh-pages`
+   - **Folder:** `/ (root)`
+
+5. Guardar la configuración.
+
+GitHub mostrará la URL pública donde se publicará la documentación.
+
+---
+
+# 🔗 4. URL pública generada
+
+La URL de acceso a la documentación tiene este formato:
+
+```
+https://TuUsuario.github.io/PPS-Unidad0-Tarea-Tu_nombre/
+```
+
+Donde:
+
+- `TuUsuario` = tu nombre de usuario de GitHub
+- `PPS-Unidad0-Tarea-Tu_nombre` = nombre del repositorio sin `docs/` ni subrutas
+
+Al abrir esa URL, la web generada por MkDocs estará disponible públicamente.
+
+---
+
+# 🔍 5. Verificación del funcionamiento
+
+Para comprobar que GitHub Pages está sirviendo correctamente la documentación:
+
+### ✔ Verificar que la rama `gh-pages` contiene archivos HTML
+
+```bash
+git checkout gh-pages
 ls -la
 ```
 
----
+Deben aparecer:
 
-# 📂 4. Creación de la estructura del proyecto
+- `index.html`
+- `404.html`
+- `css/`
+- `js/`
+- `search/`
 
-Se crearon todas las carpetas y archivos necesarios:
+### ✔ Entrar en la URL pública
 
-```bash
-mkdir -p calculator docs .github/workflows
-touch calculator/__init__.py calculator/gui.py
-touch docs/index.md docs/git.md docs/gitActions.md docs/gitPages.md docs/docker.md docs/evidencias.md docs/conclusiones.md
-touch mkdocs.yml requirements.txt README.md
-```
-
-De esta forma queda montada toda la estructura base del proyecto.
+Basta con abrirla en el navegador.  
+Si la página se ve correctamente, GitHub Pages está funcionando.
 
 ---
 
-# 🧩 5. Configuración de Git en local
+# 🛠 6. Problemas comunes y soluciones
 
-Antes de realizar commits, se configuró la identidad del usuario:
+### ❗ La página devuelve 404  
+Asegúrate de que:
 
-```bash
-git config --global user.name "Tu Nombre"
-git config --global user.email "tu@correo.com"
-```
-
-Comprobación:
-
-```bash
-git config user.name
-git config user.email
-```
-
-Esto permite que los cambios subidos al repositorio queden correctamente firmados.
+- Se ha seleccionado **Branch: gh-pages**
+- El workflow se ha ejecutado al menos una vez
+- La rama contiene un `index.html`
 
 ---
 
-# 💾 6. Primer commit y subida al repositorio
+### ❗ La web carga pero sin estilos  
+Esto ocurre si:
 
-Después de crear la estructura:
+- Se usan rutas erróneas en `mkdocs.yml`
+- Se movieron manualmente carpetas dentro de `gh-pages`
 
-```bash
-git add .
-git commit -m "Estructura inicial del proyecto creada"
-git push origin main
-```
-
-Este commit marca el punto inicial del proyecto, con todos los archivos base.
+Solución: no modificar manualmente la rama `gh-pages`.
 
 ---
 
-# 👥 7. Añadir colaborador al repositorio
+### ❗ La web muestra contenido raro  
+Esto sucede cuando en el `nav:` de `mkdocs.yml` se usan rutas absolutas erróneas.
 
-Para permitir supervisión y acceso al profesor, se añadió como colaborador:
+Debe ser así:
 
-Ruta:
-
-```
-Repository → Settings → Collaborators → Add collaborator
-```
-
-Colaborador añadido:
-
-```
-PPSvjp
+```yaml
+nav:
+  - Inicio: index.md
+  - Git: git.md
 ```
 
-Esto habilita acceso directo al repositorio para revisión y control.
+NO así:
 
----
-
-# 📌 8. Comprobaciones realizadas
-
-### ✔ Confirmación de la estructura del proyecto
-
-```bash
-ls -R
-```
-
-### ✔ Revisión del historial de cambios
-
-```bash
-git log --oneline
-```
-
-### ✔ Estado del repositorio
-
-```bash
-git status
+```yaml
+nav:
+  - Inicio: docs/index.md
 ```
 
 ---
 
-# 📝 9. Conclusiones del apartado Git
+# 📝 7. Conclusión del apartado GitHub Pages
 
-Gracias a este apartado he podido aprender y reforzar:
+Gracias a este apartado he aprendido:
 
-### 🔹 La importancia del control de versiones  
-Git permite mantener el proyecto organizado, documentado y con un historial claro de cambios.
+### 🔹 Cómo publicar documentación automáticamente  
+GitHub Pages permite tener la web accesible en todo momento sin subir nada manualmente.
 
-### 🔹 Cómo crear y gestionar repositorios en GitHub  
-Incluyendo la subida de cambios, configuración inicial y gestión de colaboradores.
+### 🔹 Cómo funciona la rama `gh-pages`  
+Es una rama especial dedicada a la publicación, generada automáticamente por el workflow.
 
-### 🔹 Cómo preparar una estructura completa de proyecto  
-Que posteriormente será utilizada por herramientas como MkDocs y GitHub Actions.
+### 🔹 Cómo verificar el despliegue  
+Revisando la ejecución del workflow y la configuración de Pages.
 
-### 🔹 Flujo básico de trabajo en un proyecto real  
-Clonación, configuración, commits, push, estructura y documentación.
+### 🔹 Cómo resolver problemas frecuentes  
+Especialmente los relacionados con rutas y el menú de navegación.
 
-Este apartado sienta las bases para trabajar adecuadamente con automatización, publicación y despliegue en los apartados siguientes.
+GitHub Pages es una herramienta muy útil y profesional para publicar documentación estática de manera rápida, automática y gratuita.
 
 ---
+

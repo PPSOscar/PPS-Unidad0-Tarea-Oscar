@@ -8,6 +8,5 @@ nav:
   - 2. GitHub Actions (Workflow): gitActions.md
   - 3. GitHub Pages (Publicación): gitPages.md
   - 4. Docker & NGINX (Despliegue local): docker.md
-  - 5. Evidencias del Proyecto: evidencias.md
   - Conclusiones: conclusiones.md
 
