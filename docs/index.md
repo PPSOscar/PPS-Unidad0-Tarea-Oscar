@@ -24,8 +24,7 @@ Este sitio web explica paso a paso cómo se ha desarrollado toda la actividad, d
 2. [Workflow con GitHub Actions](gitActions.md) 
 3. [Publicación con GitHub Pages](gitPages.md)
 4. [Despliegue local con Docker + NGINX](docker.md)
-5. [Evidencias del proyecto](evidencias.md)
-6. [Conclusiones](conclusiones.md)
+5. [Conclusiones](conclusiones.md)
 
 ---
 
