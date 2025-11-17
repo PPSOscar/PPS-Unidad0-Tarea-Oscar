@@ -1,6 +1,6 @@
 site_name: PPS - Unidad 0 - Óscar
 theme:
-  name: material
+  name: mkdocs
 
 nav:
   - Inicio: docs/index.md
