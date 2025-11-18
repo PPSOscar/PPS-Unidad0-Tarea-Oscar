@@ -1,6 +1,6 @@
 # 🌐 3. Publicación de la Documentación con GitHub Pages
 
-Este documento recoge **todo el desarrollo del apartado GitHub Pages**, explicando cómo se ha configurado la publicación automática de la documentación generada con MkDocs mediante la rama `gh-pages`.
+Este documento recojo **todo el desarrollo del apartado GitHub Pages**, explicando cómo se ha configurado la publicación automática de la documentación generada con MkDocs mediante la rama `gh-pages`.
 
 ---
 
@@ -67,7 +67,7 @@ GitHub mostrará la URL pública donde se publicará la documentación.
 La URL de acceso a la documentación tiene este formato:
 
 ```
-https://TuUsuario.github.io/PPS-Unidad0-Tarea-Tu_nombre/
+https://TuUsuario.github.io/PPS-Unidad0-Tarea-Oscar/
 ```
 
 Donde:

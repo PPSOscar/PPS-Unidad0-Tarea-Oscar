@@ -1,7 +1,7 @@
 # 🐳 Desarrollo completo del apartado Docker
 ## Despliegue local con Docker y NGINX
 
-Este documento recoge **todo el proceso completo** realizado en el apartado de Docker, incluyendo instalación, comandos utilizados, comprobaciones y conclusiones finales. Todo está expresado utilizando **Markdown enriquecido**, con listas, bloques de código y explicaciones claras.
+En este documento recojo **todo el proceso completo** realizado en el apartado de Docker, incluyendo instalación, comandos utilizados, comprobaciones y conclusiones finales. Todo está expresado utilizando **Markdown enriquecido**, con listas, bloques de código y explicaciones claras.
 
 ---
 

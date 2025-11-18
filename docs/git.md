@@ -1,6 +1,6 @@
 # 📘 1. Git — Creación del Repositorio y Estructura del Proyecto
 
-Este documento recoge **todo el desarrollo del apartado Git**, explicando paso a paso cómo se ha creado y configurado el repositorio del proyecto, así como la estructura inicial solicitada en la tarea.
+Este documento recojo **todo el desarrollo del apartado Git**, explicando paso a paso cómo se ha creado y configurado el repositorio del proyecto, así como la estructura inicial solicitada en la tarea.
 
 ---
 
@@ -22,15 +22,15 @@ Es la base sobre la cual se construye todo el proyecto.
 
 El primer paso consistió en crear un repositorio en GitHub:
 
-1. Acceder a GitHub → **New repository**.  
+1. Acceder a GitHub → **New repository**.
 2. Asignar el nombre obligatorio:
 
 ```
-PPS-Unidad0-Tarea-Tu_nombre
+PPS-Unidad0-Tarea-Oscar
 ```
 
-3. Seleccionar visibilidad **Public**.  
-4. (Opcional) Añadir README inicial.  
+3. Seleccionar visibilidad **Public**. 
+4. (Opcional) Añadir README inicial.
 5. Crear repositorio y copiar la URL HTTPS.
 
 ---
@@ -40,8 +40,8 @@ PPS-Unidad0-Tarea-Tu_nombre
 En la terminal se ejecutó:
 
 ```bash
-git clone https://github.com/TuUsuario/PPS-Unidad0-Tarea-Tu_nombre.git
-cd PPS-Unidad0-Tarea-Tu_nombre
+git clone https://github.com/TuUsuario/PPS-Unidad0-Tarea-Oscar.git
+cd PPS-Unidad0-Tarea-OScar
 ```
 
 Comprobación de que estamos en la ruta correcta:
@@ -73,8 +73,8 @@ De esta forma queda montada toda la estructura base del proyecto.
 Antes de realizar commits, se configuró la identidad del usuario:
 
 ```bash
-git config --global user.name "Tu Nombre"
-git config --global user.email "tu@correo.com"
+git config --global user.name "PPSOscar"
+git config --global user.email "oscar.polofernandez..."
 ```
 
 Comprobación:
@@ -115,7 +115,7 @@ Repository → Settings → Collaborators → Add collaborator
 Colaborador añadido:
 
 ```
-PPSvjp
+PPS...
 ```
 
 Esto habilita acceso directo al repositorio para revisión y control.

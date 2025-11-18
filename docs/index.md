@@ -3,7 +3,7 @@
 
 Bienvenido a la documentación oficial del proyecto realizado para la Unidad 0 del módulo **Puesta en Producción Segura**.
 
-Este sitio web explica paso a paso cómo se ha desarrollado toda la actividad, desde la creación del repositorio hasta el despliegue final mediante Docker y NGINX.
+En este sitio web explico paso a paso cómo se ha desarrollado toda la actividad, desde la creación del repositorio hasta el despliegue final mediante Docker y NGINX.
 
 ---
 

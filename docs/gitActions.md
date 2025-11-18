@@ -1,6 +1,6 @@
 # ⚙️ 2. GitHub Actions – Automatización con Workflow
 
-Este documento recoge **todo el desarrollo del apartado GitHub Actions**, explicando paso a paso cómo se ha configurado el workflow que genera la documentación con MkDocs y la publica automáticamente en la rama `gh-pages`.
+Este documento recojo **todo el desarrollo del apartado GitHub Actions**, explicando paso a paso cómo se ha configurado el workflow que genera la documentación con MkDocs y la publica automáticamente en la rama `gh-pages`.
 
 ---
 
@@ -26,7 +26,7 @@ El archivo se crea dentro del directorio:
 .github/workflows/CreacionDocumentacion.yml
 ```
 
-> 📌 **Nota:**  
+> 📌 **Nota:**
 > MkDocs genera HTML a partir de Markdown, pero el workflow es quien se encarga de automatizar ese proceso.
 
 ---
