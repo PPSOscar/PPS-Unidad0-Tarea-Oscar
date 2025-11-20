@@ -1,12 +1,11 @@
-site_name: PPS - Unidad 0 - Tarea RA5 - Óscar
+site_name: PPS - Unidad 0 - Tarea RA5 - Óscar Polo Fernández
 theme:
   name: mkdocs
 
 nav:
   - Inicio: index.md
   - 1. Creación del Repositorio: git.md
-  - 2. GitHub Actions (Workflow): gitActions.md
-  - 3. GitHub Pages (Publicación): gitPages.md
-  - 4. Docker & NGINX (Despliegue local): docker.md
-  - Conclusiones: conclusiones.md
-
+  - 2. GitHub Actions: gitActions.md
+  - 3. GitHub Pages: gitPages.md
+  - 4. Docker & NGINX: docker.md
+  - 5. Conclusiones: conclusiones.md

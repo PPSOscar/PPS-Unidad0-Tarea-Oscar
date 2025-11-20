@@ -1,26 +1,29 @@
-# 📘 1. Git — Creación del Repositorio y Estructura del Proyecto
+#1. Git — Creación del Repositorio y estructura
 
-Este documento recojo **todo el desarrollo del apartado Git**, explicando paso a paso cómo se ha creado y configurado el repositorio del proyecto, así como la estructura inicial solicitada en la tarea.
-
----
-
-# 🎯 1. Objetivos del apartado Git
-
-Este apartado permite aprender:
-
-- Cómo crear y clonar un repositorio en GitHub.
-- Cómo organizar correctamente la estructura de un proyecto.
-- Cómo realizar commits y subir cambios.
-- Cómo añadir colaboradores.
-- Cómo configurar Git en local.
-
-Es la base sobre la cual se construye todo el proyecto.
+En este apartado documento y recopilo **todo el desarrollo del apartado Git**, explicando paso a paso cómo he creado el repositorio, cómo he clonado en máquina local y cómo he construido la estructura de directorios y archivos. También muestro parte de la creación del contenido de la documentación.
 
 ---
 
-# 🏗️ 2. Creación del repositorio en GitHub
+#1. Objetivos del apartado Git
 
-El primer paso consistió en crear un repositorio en GitHub:
+Incluyo en este apartado:
+
+- Creación y clonación de  un repositorio en GitHub.
+- Organización de la estructura de un repositorio.
+- Realización de _commits_ y subida de cambios a repositorio remoto.
+- Añadir colaboradores.
+- COnfiguración de Git en local.
+
+Es la base sobre la cual se construyo toda la actividad.
+
+---
+
+#2. Creación del repositorio en GitHub
+
+En primer lugar, creo el repositorio en [GitHub](https://github.com/):
+
+![Creación del repositorio y generación del archivo README](/home/PPSOscar/Escritorio/PPS-Unidad0-Tarea-Oscar/docs/img/imagenes_git/)
+
 
 1. Acceder a GitHub → **New repository**.
 2. Asignar el nombre obligatorio:
