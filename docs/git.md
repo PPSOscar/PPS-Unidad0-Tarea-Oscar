@@ -25,83 +25,137 @@ En primer lugar, creo el repositorio en [GitHub](https://github.com/):
 ![Creación del repositorio y generación del archivo README](img/imagenes_git/creacion_repositorio.jpg)
 
 
-1. Acceder a GitHub → **New repository**.
-2. Asignar el nombre obligatorio:
+1. En mi cuenta de GitHub --> **New repository**.
+2. Asigno el nombre al repositorio:
 
-```
-PPS-Unidad0-Tarea-Oscar
+```PPS-Unidad0-Tarea-Oscar
 ```
 
-3. Seleccionar visibilidad **Public**. 
-4. (Opcional) Añadir README inicial.
-5. Crear repositorio y copiar la URL HTTPS.
+3. Selecciono la visibilidad --> **Public**. 
+4. Añado el archivo README.
 
 ---
 
-# 💻 3. Clonado del repositorio en Kali Linux
+#3. Añadir colaborador al repositorio 
 
-En la terminal se ejecutó:
+Para permitir acceso al repositorio a otros usuarios, los añado como colaboradores. En este caso, únicamente al usuario de mi profesor.:
 
-```bash
-git clone https://github.com/TuUsuario/PPS-Unidad0-Tarea-Oscar.git
-cd PPS-Unidad0-Tarea-OScar
+Para añadir colaboradores:
+
+```
+Repositorio --> Settings --> Collaborators --> Add collaborator
 ```
 
-Comprobación de que estamos en la ruta correcta:
+Muestro el usuario de mi profesor ya añadido como colaborador:
 
-```bash
-pwd
-ls -la
-```
+![Colaborador](img/imagenes_git/colaborador.png)
 
 ---
 
-# 📂 4. Creación de la estructura del proyecto
+#4. Clonación del repositorio en mi máquina.
 
-Se crearon todas las carpetas y archivos necesarios:
+Indicar en este punto que la actividad la estoy realizando en una máquina Kali Linux.
 
-```bash
-mkdir -p calculator docs .github/workflows
-touch calculator/__init__.py calculator/gui.py
-touch docs/index.md docs/git.md docs/gitActions.md docs/gitPages.md docs/docker.md docs/evidencias.md docs/conclusiones.md
-touch mkdocs.yml requirements.txt README.md
+Antes de realizar la clonación del repositorio, es imprescindible realizar estos dos pasos previos:
+
+- Inicializar las variables
+
+```Tu_nombre=PPSOscar
+Tu_mail_github=oscar.polofernandez1@gmail.com
+Tu_usuario_github=PPSOscar
+
+git config --global user.name PPSOscar
+git config --global user.email oscar.polofernandez1@gmail.com
+git config --global init.defaultBranch main
+git config --global core.editor nano
 ```
 
-De esta forma queda montada toda la estructura base del proyecto.
+- Generar la clave SSH
+
+```ssh-keygen -t ed25519 -C $Tu_mail_github
+# Iniciamos el agente en segundo plano
+eval "$(ssh-agent -s)"
+#Nos mostrará un mensaje como 
+#Agent pid 59566 ssh-add ~/.ssh/id_ed25519
+```
+Una vez generada la clave SSH nos iremos a nuestra cuenta de GitHub, apartado **Settings** --> **SSH and GPG keys** --> **New SSH key** --> Pegamos nuestra clave SSH y guardamos.
+
+De esta forma, mi máquina Kali Linux queda vinculada a través de SSH con mi repositorio remoto. Listo para clonar.
+
+
+Para clonar el repositorio, me sitúo en el directorio local en el que quiera tener guardada la actividad y ejecuto en la terminal el siguiente comando:
+
+```git clone git@github.com:PPOscar/PPS-Unidad0-Tarea-Oscar.git
+```
+**LA URL se obtiene en nuestro repositorio de GitHub --> Code --> SSH
+
+A continuación muestro la clonación del repositorio y la estructura inicial clonada mediante el comando _tree_:
+
+![Clonacion del repositorio](img/imagenes_git/clonacion_repositorio.png)
+
+
+** Para ver los archivos ocultos del repositorio, como el .git, hay que ejecutar el comando _tree -a_.
 
 ---
 
-# 🧩 5. Configuración de Git en local
+#5. Creación de la estructura del repositorio
 
-Antes de realizar commits, se configuró la identidad del usuario:
+Creo la estructura que me pide la actividad:
 
-```bash
-git config --global user.name "PPSOscar"
-git config --global user.email "oscar.polofernandez..."
+```
+# El directorio principal
+mkdir PPS-Unidad0-Tarea-Oscar
+
+# Me situo en el directorio principal
+cd PPS-Unidad0-Tare-Oscar
+
+# Creo carpetas principales
+mkdir calculator
+mkdir docs
+mkdir .github
+mkdir .github/workflows
+
+# Creo archivos dentro de calculator/
+touch calculator/__init__.py
+touch calculator/gui.py
+
+# Creo archivos dentro de docs/
+touch docs/index.md
+touch docs/git.md
+touch docs/gitActions.md
+touch docs/gitPages.md
+touch docs/docker.md
+touch docs/conclusiones.md
+touch docs/img
+
+# Creao archivos raíz
+touch mkdocs.yml
+touch requirements.txt
+
+# Creao archivo de workflow
+touch .github/workflows/CreacionDocumentacion.yml
 ```
 
-Comprobación:
+De esta forma queda preparada toda la estructura inicial de la actividad. Nos debería quedar como en la siguiente imagen.
 
-```bash
-git config user.name
-git config user.email
-```
-
-Esto permite que los cambios subidos al repositorio queden correctamente firmados.
+![estructura](img/imagenes_git/estructura.png)
 
 ---
 
-# 💾 6. Primer commit y subida al repositorio
+#6. Primer Commit y subida al repositorio
 
-Después de crear la estructura:
+Después de crear la estructura, hago la primera subida al repositorio:
 
-```bash
-git add .
-git commit -m "Estructura inicial del proyecto creada"
+* _git add ._ --> Prepara todos los cambios realizados en archivos y carpetas.
+* _gitt commit -m ""_ --> Crea un punto de guardado en el historial del repositorio. 
+* _git push origin main --> Envía todos los cambios al repositorio remoto. En este caso, a la rama main.
+
+```git add .
+git commit -m "Estructura inicial de la actividad"
 git push origin main
 ```
 
-Este commit marca el punto inicial del proyecto, con todos los archivos base.
+Este commit marca el punto inicial de la actividad, con todos los archivos iniciales.
 
 ---
 
