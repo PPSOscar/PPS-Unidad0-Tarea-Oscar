@@ -22,7 +22,7 @@ Es la base sobre la cual se construyo toda la actividad.
 
 En primer lugar, creo el repositorio en [GitHub](https://github.com/):
 
-![Creación del repositorio y generación del archivo README](/home/PPSOscar/Escritorio/PPS-Unidad0-Tarea-Oscar/docs/img/imagenes_git/)
+![Creación del repositorio y generación del archivo README](img/imagenes_git/creacion_repositorio.jpg)
 
 
 1. Acceder a GitHub → **New repository**.
