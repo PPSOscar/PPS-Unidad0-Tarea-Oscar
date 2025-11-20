@@ -26,11 +26,7 @@ En primer lugar, creo el repositorio en [GitHub](https://github.com/):
 
 
 1. En mi cuenta de GitHub --> **New repository**.
-2. Asigno el nombre al repositorio:
-
-```PPS-Unidad0-Tarea-Oscar
-```
-
+2. Asigno el nombre al repositorio: PPS-Unidad0-Tarea-Oscar
 3. Selecciono la visibilidad --> **Public**. 
 4. Añado el archivo README.
 
@@ -38,7 +34,7 @@ En primer lugar, creo el repositorio en [GitHub](https://github.com/):
 
 #3. Añadir colaborador al repositorio 
 
-Para permitir acceso al repositorio a otros usuarios, los añado como colaboradores. En este caso, únicamente al usuario de mi profesor.:
+Para permitir acceso al repositorio a otros usuarios, los añado como colaboradores. En este caso, únicamente al usuario de mi profesor:
 
 Para añadir colaboradores:
 
@@ -47,7 +43,6 @@ Repositorio --> Settings --> Collaborators --> Add collaborator
 ```
 
 Muestro el usuario de mi profesor ya añadido como colaborador:
-
 ![Colaborador](img/imagenes_git/colaborador.png)
 
 ---
@@ -60,7 +55,8 @@ Antes de realizar la clonación del repositorio, es imprescindible realizar esto
 
 - Inicializar las variables
 
-```Tu_nombre=PPSOscar
+```
+Tu_nombre=PPSOscar
 Tu_mail_github=oscar.polofernandez1@gmail.com
 Tu_usuario_github=PPSOscar
 
@@ -72,7 +68,8 @@ git config --global core.editor nano
 
 - Generar la clave SSH
 
-```ssh-keygen -t ed25519 -C $Tu_mail_github
+```
+ssh-keygen -t ed25519 -C $Tu_mail_github
 # Iniciamos el agente en segundo plano
 eval "$(ssh-agent -s)"
 #Nos mostrará un mensaje como 
@@ -85,16 +82,17 @@ De esta forma, mi máquina Kali Linux queda vinculada a través de SSH con mi re
 
 Para clonar el repositorio, me sitúo en el directorio local en el que quiera tener guardada la actividad y ejecuto en la terminal el siguiente comando:
 
-```git clone git@github.com:PPOscar/PPS-Unidad0-Tarea-Oscar.git
 ```
-**LA URL se obtiene en nuestro repositorio de GitHub --> Code --> SSH
+git clone git@github.com:PPOscar/PPS-Unidad0-Tarea-Oscar.git
+```
+**LA URL se obtiene en nuestro repositorio de GitHub --> Code --> SSH**
 
 A continuación muestro la clonación del repositorio y la estructura inicial clonada mediante el comando _tree_:
 
 ![Clonacion del repositorio](img/imagenes_git/clonacion_repositorio.png)
 
 
-** Para ver los archivos ocultos del repositorio, como el .git, hay que ejecutar el comando _tree -a_.
+* Para ver los archivos ocultos del repositorio, como el .git, hay que ejecutar el comando _tree -a_.
 
 ---
 
@@ -148,75 +146,20 @@ Después de crear la estructura, hago la primera subida al repositorio:
 
 * _git add ._ --> Prepara todos los cambios realizados en archivos y carpetas.
 * _gitt commit -m ""_ --> Crea un punto de guardado en el historial del repositorio. 
-* _git push origin main --> Envía todos los cambios al repositorio remoto. En este caso, a la rama main.
+* _git push origin main_ --> Envía todos los cambios al repositorio remoto. En este caso, a la rama main.
+* _git status_ --> Muestra el estado actual del repositorio.
 
-```git add .
+```
+git add .
 git commit -m "Estructura inicial de la actividad"
 git push origin main
+git status
 ```
 
 Este commit marca el punto inicial de la actividad, con todos los archivos iniciales.
 
----
-
-# 👥 7. Añadir colaborador al repositorio
-
-Para permitir supervisión y acceso al profesor, se añadió como colaborador:
-
-Ruta:
-
-```
-Repository → Settings → Collaborators → Add collaborator
-```
-
-Colaborador añadido:
-
-```
-PPS...
-```
-
-Esto habilita acceso directo al repositorio para revisión y control.
+![subir al repositorio](img/imagenes_git/subida_repositorio.png)
 
 ---
-
-# 📌 8. Comprobaciones realizadas
-
-### ✔ Confirmación de la estructura del proyecto
-
-```bash
-ls -R
-```
-
-### ✔ Revisión del historial de cambios
-
-```bash
-git log --oneline
-```
-
-### ✔ Estado del repositorio
-
-```bash
-git status
-```
-
----
-
-# 📝 9. Conclusiones del apartado Git
-
-Gracias a este apartado he podido aprender y reforzar:
-
-### 🔹 La importancia del control de versiones  
-Git permite mantener el proyecto organizado, documentado y con un historial claro de cambios.
-
-### 🔹 Cómo crear y gestionar repositorios en GitHub  
-Incluyendo la subida de cambios, configuración inicial y gestión de colaboradores.
-
-### 🔹 Cómo preparar una estructura completa de proyecto  
-Que posteriormente será utilizada por herramientas como MkDocs y GitHub Actions.
-
-### 🔹 Flujo básico de trabajo en un proyecto real  
-Clonación, configuración, commits, push, estructura y documentación.
-
-Este apartado sienta las bases para trabajar adecuadamente con automatización, publicación y despliegue en los apartados siguientes.
-
+**En este apartado asiento la base para trabajar adecuadamente con automatización, publicación y despliegue en los apartados siguientes.
 ---
