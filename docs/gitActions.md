@@ -169,7 +169,7 @@ Tras modificar el archivo _.yml_ subo los cambios al repositorio.
 
 # 6 Ejecución del workflow
 
-Una vez hemos subido el _.yml_ a nuestro repositorio, desde la pestaña **Actions** de nuestra cuenta de GitHub podemos ver los logs de ejecución de los diferentes apartados que he comnentado en el punto anterior. Si hay algún error se nos mostrará, y si se ejecuta correctamente se marcará con un check verde tras finalizar la ejecución.
+Una vez hemos subido el _.yml_ a nuestro repositorio, desde la pestaña **Actions** de nuestra cuenta de GitHub podemos ver los logs de ejecución de los diferentes apartados que he comentado en el punto anterior. Si hay algún error se nos mostrará, y si se ejecuta correctamente se marcará con un check verde tras finalizar la ejecución.
 
 Muestro los logs de mi _workflow_:
 
@@ -185,5 +185,5 @@ Es posible que la ejecución del _workflow_ de un error en el log relacionado co
 ![permisos](img/imagenes_gitActions/permisos.jpg)
 
 ---
-Haber realizado esta automatización me permite mantener el repositorio documentado, organizado y con actualizaciones automáticas.
+**Haber realizado esta automatización me permite mantener el repositorio documentado, organizado y con actualizaciones automáticas.**
 ---

@@ -1,81 +1,71 @@
-# 🌐 3. Publicación de la Documentación con GitHub Pages
+#3. Publicación de la Documentación con GitHub Pages
 
-Este documento recojo **todo el desarrollo del apartado GitHub Pages**, explicando cómo se ha configurado la publicación automática de la documentación generada con MkDocs mediante la rama `gh-pages`.
+En este apartado documento y recopilo **todo el desarrollo del apartado GitHub Pages**, explicando cómo he configurado la publicación automática de la documentación generada con MkDocs en la rama _gh-pages_.
 
 ---
 
-# 🎯 1. Objetivo de GitHub Pages
+#1. Objetivo de GitHub Pages
 
-El objetivo de este apartado es:
+Incluyo en este apartado:
 
-- Publicar la web generada por MkDocs.
-- Utilizar la rama `gh-pages` creada automáticamente por GitHub Actions.
+- Publicación de la web generada por MkDocs.
+- Utilización de la rama _gh-pages_ (creada automáticamente por GitHub Actions).
 - Permitir el acceso público a la documentación desde cualquier navegador.
 - Mantener la web siempre actualizada de forma automática.
 
 ---
 
-# 📝 2. Requisito previo: tener la rama `gh-pages`
+#2. Confirmar que tengo la rama `gh-pages`
 
-GitHub Pages funciona utilizando una rama especial llamada:
+GitHub Pages funciona utilizando una rama especial llamada con el mismo nombre
+
+Esta rama **no se crea manualmente**, sino que la genera automáticamente el workflow de GitHub Actions tras ejecutar _mkdocs build_ (comentado en el apartado GitHub Actions, en la creación del archivo _.yml_).
+
+Compruebo que la rama existe con el siguiente comando:
 
 ```
-gh-pages
-```
-
-Esta rama **no se crea manualmente**, sino que la genera automáticamente el workflow de GitHub Actions tras ejecutar:
-
-```bash
-mkdocs build
-```
-
-Para comprobar que la rama existe:
-
-```bash
 git fetch
 git branch -a
 ```
+En mi caso, se muestran ambas ramas y se indica con * que estoy situado en la rama _main_.
 
-Debería aparecer:
-
-```
-remotes/origin/gh-pages
-```
+![rama](img/imagenes_gitPages/rama.png)
 
 ---
 
-# ⚙️ 3. Activación de GitHub Pages
+#3. Configuración de GitHub Pages
 
-Una vez generada la rama, se configuró GitHub Pages:
+Una vez que he comprobado que tengo la rama, configuro GitHub Pages desde mi repositorio de GitHub:
 
-1. Abrir el repositorio en GitHub.
-2. Ir a **Settings**.
-3. Seleccionar la opción **Pages** en el menú lateral.
-4. En *Source* seleccionar:
+1. Voy a **Settings**.
+2. Selecciono la opción **Pages** en el menú lateral.
+4. En *Source* selecciono:
 
    - **Branch:** `gh-pages`
    - **Folder:** `/ (root)`
 
-5. Guardar la configuración.
+5. Guardo la configuración.
 
-GitHub mostrará la URL pública donde se publicará la documentación.
+GitHub muestra la URL pública donde se publicará la documentación.
+
+![ghpages](img/imagenes_gitPages/ghpages.jpg)
 
 ---
 
-# 🔗 4. URL pública generada
+#4. URL - github.io
 
-La URL de acceso a la documentación tiene este formato:
+Mi URL de acceso a la documentación es la siguiente:
 
 ```
-https://TuUsuario.github.io/PPS-Unidad0-Tarea-Oscar/
+https://ppsoscar.github.io/PPS-Unidad0-Tarea-Oscar/gitPages/
 ```
 
-Donde:
+Es esta URL:
 
-- `TuUsuario` = tu nombre de usuario de GitHub
-- `PPS-Unidad0-Tarea-Tu_nombre` = nombre del repositorio sin `docs/` ni subrutas
+- _ppsoscar_ = mi nombre de usuario de GitHub
+- _PPS-Unidad0-Tarea-Oscar_ = nombre del repositorio
 
-Al abrir esa URL, la web generada por MkDocs estará disponible públicamente.
+Al abrir esa URL, mi web generada por MkDocs está disponible públicamente.
 
 ---
 
