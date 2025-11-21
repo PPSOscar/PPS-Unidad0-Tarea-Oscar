@@ -1,11 +1,12 @@
 # Puesta en Producción Segura  
 ## Unidad 0 – Tarea RA5
 
-Bienvenid@ a la documentación de la tarea realizada para la Unidad 0 del módulo **Puesta en Producción Segura**.
+Bienvenid@ a la documentación de la tarea realizada para la Unidad 0 del módulo **Puesta en Producción Segura** por Óscar Polo Fernández, un servidor.
 
-En esta web explico paso a paso cómo he ido desarrollando, paso a paso toda la actividad. Abarco desde la creación del repositorio hasta el despliegue final de una imagen NGINX mediante contenedor Docker, pasando por la creación de un _WorkFlow_ de GitHub Actions y la respectiva vinculación con GitHub Pages.
+En esta web explico paso a paso cómo he ido desarrollando, paso a paso toda la actividad. Abarco desde la creación del repositorio hasta el despliegue final de una imagen NGINX mediante contenedor Docker, pasando por la creación de un _WorkFlow_ de GitHub Actions y la vinculación con GitHub Pages.
 
-Indicar que el desarrollo de la actividad lo realizo sobre una máquina Kali Linux.
+* Indicar que el desarrollo de la actividad lo realizo sobre una máquina Kali Linux.
+
 ---
 
 ## Índice de los contenidos

@@ -59,9 +59,9 @@ GitHub muestra la URL pública donde se publicará la documentación.
 Mi URL de acceso a la documentación es la siguiente:
 
 ```
-https://ppsoscar.github.io/PPS-Unidad0-Tarea-Oscar/gitPages/
+https://ppsoscar.github.io/PPS-Unidad0-Tarea-Oscar/
 ```
-[github.io](https://ppsoscar.github.io/PPS-Unidad0-Tarea-Oscar/gitPages/)
+[github.io](https://ppsoscar.github.io/PPS-Unidad0-Tarea-Oscar/)
 
 Es esta URL:
 
