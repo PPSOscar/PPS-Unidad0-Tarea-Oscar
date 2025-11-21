@@ -1,41 +1,41 @@
-# ⚙️ 2. GitHub Actions – Automatización con Workflow
+#2. GitHub Actions – Automatización con Workflow
 
-Este documento recojo **todo el desarrollo del apartado GitHub Actions**, explicando paso a paso cómo se ha configurado el workflow que genera la documentación con MkDocs y la publica automáticamente en la rama `gh-pages`.
-
----
-
-# 🚀 1. Objetivo del Workflow
-
-El propósito de este workflow es:
-
-- Instalar MkDocs en un runner de GitHub Actions.
-- Construir automáticamente la documentación ubicada en `docs/`.
-- Generar la carpeta `site/` con el resultado final.
-- Publicar esos archivos en la rama `gh-pages`.
-- Actualizar GitHub Pages sin intervención manual.
-
-Este proceso transforma cada actualización del repositorio en un despliegue automático.
+En este apartado documento y recopilo  **todo el desarrollo del apartado GitHub Actions**, explicando paso a paso cómo he configurado el _workflow_ que genera la documentación con MkDocs y la publica automáticamente en la rama `gh-pages`.
 
 ---
 
-# 📁 2. Ubicación del archivo del workflow
+#1. Objetivo del workflow
 
-El archivo se crea dentro del directorio:
+Incluyo en este apartado:
+
+- Instalación de  MkDocs en un _runner_ de GitHub Actions.
+- Construcción automática de la documentación ubicada en _docs/_.
+- Generación del directorio _site/_ con el resultado final.
+- Publicación de esos archivos en la rama _gh-pages_.
+- Actualización de  GitHub Pages sin intervención manual.
+
+Con este proceso se consigue que cada actualización del repositorio sea un despliegue automático.
+
+---
+
+#2. Ubicación del archivo del workflow
+
+El archivo se crea dentro del siguiente directorio. Ya le he creado en la creación de la estructura del repositorio.
 
 ```
 .github/workflows/CreacionDocumentacion.yml
 ```
 
-> 📌 **Nota:**
-> MkDocs genera HTML a partir de Markdown, pero el workflow es quien se encarga de automatizar ese proceso.
+Este archivo _.yml_ es el que automatiza la creación y publicación de la documentación MkDocs.
 
 ---
 
-# 📝 3. Contenido completo del archivo YAML
+#3. Contenido y explicación del archivo YAML
 
-Este es el contenido exacto utilizado en el proyecto:
+El contenido del archivo _.yml_ es el siguiente:
 
-```yaml
+```
+yaml
 name: build-mkdocs
 
 on:
@@ -72,77 +72,82 @@ jobs:
           publish_branch: gh-pages
 ```
 
----
+A continuación procedo a comentar por partes el funcionamiento de este archivo:
 
-# 🔍 4. Explicación detallada del workflow
+##3.1 Activación del workflow
 
-## 🟦 4.1 Activación del workflow
-
-```yaml
+```
+yaml
 on:
   push:
     branches:
       - main
 ```
 
-Esto significa que **cada vez que se haga un `git push` a `main`**, el workflow se activará automáticamente.
+* Esto significa que cada vez que se haga un _git push_ a la rama _main_, el workflow se activará automáticamente.
 
 ---
 
-## 🟩 4.2 Preparación del entorno
+## 3.2 Preparación del entorno
 
-El runner utilizado es Ubuntu:
+El _runner_ (el que ejecuta el _workflow_) utilizado es Ubuntu:
 
-```yaml
+```
+yaml
 runs-on: ubuntu-latest
 ```
 
 A continuación, se descargan los archivos del repositorio:
 
-```yaml
+```
+yaml
 uses: actions/checkout@v3
 ```
 
-Y se instala Python:
+Se instala Python:
 
-```yaml
+```
+yaml
 uses: actions/setup-python@v4
 with:
   python-version: '3.10'
 ```
-
 ---
 
-## 🟨 4.3 Instalación de MkDocs
+##3.3 Instalación de MkDocs
 
-```yaml
+Se instala MKDocs. MkDocs es quien convierte MarkDown en HTML.
+
+```
+yaml
 pip install mkdocs
 ```
-
-MkDocs es el motor que convierte Markdown → HTML.
-
 ---
 
-## 🟧 4.4 Construcción de la documentación
+##3.4 Construcción de la documentación
 
-```yaml
+Se ejecuta lo siguiente:
+
+```
+yaml
 mkdocs build --clean
 ```
 
-Este comando:
+Este comando realiza lo siguiente:
 
-- Lee el contenido de `docs/`
+- Lee el contenido de _docs/_
 - Lo transforma en HTML
-- Lo almacena en la carpeta `site/`
+- Lo almacena en la carpeta _site/_
 - Limpia versiones anteriores
 
 ---
 
-## 🟥 4.5 Publicación en GitHub Pages
+##3.5 Publicación en GitHub Pages
 
-Se usa la acción oficial **peaceiris/actions-gh-pages**:
+Se usa la acción _peaceiris/actions-gh-pages_:
 
-```yaml
+```
+yaml
 uses: peaceiris/actions-gh-pages@v3
 with:
   github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -150,40 +155,35 @@ with:
   publish_branch: gh-pages
 ```
 
-Esto:
+Esto lo que hace es publicar la carpeta _site/_ en la rama _gh-pages_ de manera automática.
 
-- Publica la carpeta `site/`
-- En la rama `gh-pages`
-- Lo hace automáticamente sin claves manuales
 
----
+A continuación muestro una captura en la que muestro parte de mi archivo _.yml_:
 
-# 🌐 5. Resultado
+![Archivo YML](img/imagenes_gitActions/yml.jpg)
 
-Tras ejecutarse el workflow:
 
-- Se crea o actualiza la rama `gh-pages`
-- GitHub Pages utiliza esa rama para mostrar la web pública
-- Tu documentación está siempre actualizada sin esfuerzo manual
-
-Puedes consultar la ejecución en:
-
-```
-GitHub → Actions → build-mkdocs
-```
+Tras modificar el archivo _.yml_ subo los cambios al repositorio.
 
 ---
 
-# 📝 6. Conclusión del apartado GitHub Actions
+# 6 Ejecución del workflow
 
-Gracias a este workflow he aprendido:
+Una vez hemos subido el _.yml_ a nuestro repositorio, desde la pestaña **Actions** de nuestra cuenta de GitHub podemos ver los logs de ejecución de los diferentes apartados que he comnentado en el punto anterior. Si hay algún error se nos mostrará, y si se ejecuta correctamente se marcará con un check verde tras finalizar la ejecución.
 
-- Cómo automatizar procesos de construcción y despliegue.
-- Cómo funcionan los runners de GitHub Actions.
-- Cómo empaquetar documentación en pipelines reales.
-- Cómo usar ramas dedicadas para despliegue (`gh-pages`).
-- Cómo integrar documentación + automatización + publicación en un solo flujo.
+Muestro los logs de mi _workflow_:
 
-Esto permite mantener un proyecto documentado, organizado y con actualizaciones automáticas, siguiendo prácticas reales del mundo DevOps.
+![logs](img/imagenes_gitActions/logs.jpg)
 
+
+## 6.1 Problema con los permisos.
+
+Es posible que la ejecución del _workflow_ de un error en el log relacionado con los permisos. Esto es debido a que, de forma predeterminada, en las cuentas de GitHub los permisos de los _workflows_ no están activados para lectura y escritura. Para solucionarlo:
+
+* En mi  repositorio de GitHub --> Settings --> Actions --> General --> Permisos Workflow --> Read and Write
+
+![permisos](img/imagenes_gitActions/permisos.jpg)
+
+---
+Haber realizado esta automatización me permite mantener el repositorio documentado, organizado y con actualizaciones automáticas.
 ---

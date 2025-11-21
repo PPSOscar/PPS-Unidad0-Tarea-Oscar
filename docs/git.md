@@ -1,6 +1,6 @@
-#1. Git — Creación del Repositorio y estructura
+#1. Git — Creación del repositorio y estructura
 
-En este apartado documento y recopilo **todo el desarrollo del apartado Git**, explicando paso a paso cómo he creado el repositorio, cómo he clonado en máquina local y cómo he construido la estructura de directorios y archivos. También muestro parte de la creación del contenido de la documentación.
+En este apartado documento y recopilo **todo el desarrollo del apartado Git**, explicando paso a paso cómo he creado el repositorio, cómo he clonado en máquina local y cómo he construido la estructura de directorios y archivos.
 
 ---
 
@@ -140,7 +140,7 @@ De esta forma queda preparada toda la estructura inicial de la actividad. Nos de
 
 ---
 
-#6. Primer Commit y subida al repositorio
+#6. Subida al repositorio
 
 Después de crear la estructura, hago la primera subida al repositorio:
 
@@ -158,8 +158,8 @@ git status
 
 Este commit marca el punto inicial de la actividad, con todos los archivos iniciales.
 
-![subir al repositorio](img/imagenes_git/subida_repositorio.png)
+![subir al repositorio](img/imagenes_git/subir_repositorio.png)
 
 ---
-**En este apartado asiento la base para trabajar adecuadamente con automatización, publicación y despliegue en los apartados siguientes.
+**En este apartado asiento la base para trabajar adecuadamente con automatización, publicación y despliegue en los apartados siguientes.**
 ---
