@@ -1,65 +1,29 @@
-# 📝 Conclusiones
+# Conclusiones de la Actividad
+## 1. Conclusiones sobre Git
 
-La realización de esta actividad me ha permitido comprender y aplicar de forma práctica varios aspectos clave de la **Puesta en Producción Segura**, combinando documentación, control de versiones, automatización y despliegue.
+Con este apartado he comprendido, a través de la práctica, la importancia de utilizar Git como herramienta de control de versiones distribuida en proyectos, como puede ser esta actividad. He podido organizar las distintas versiones de mis archivos y trabajar con ellos tras publicar las respectivas modificaciones, sabiendo en todo momento qué he cambiado, qué no, cuándo y  evitar así perder trabajo y tiempo.
+Además, al trabajar con ramas como _main_ y _gh-pages_, he aprendido a moverme entre ellas y a entender cómo Git mantiene distintos estados del repositorio según la rama en la que esté trabajando (y a no liarla cuando estás trabajando en una, pensando que estás en la otra).
+También he reforzado el uso de comandos básicos de Git como _git add_, _git commit_, _git push_ o _git status_, que parecen simples pero realmente son los que sostienen todo el flujo de trabajo.
 
----
+## 2. Conclusiones sobre GitHub Actions
 
-## 🔧 Git — Control de versiones
+GitHub Actions ha sido una de las partes más interesantes porque automatiza algo que, de otra forma, tendría que hacerse manualmente.
+Crear el _workflow_ me ha permitido entender cómo funciona un archivo _.yml_, qué es un "runner" y cómo se ejecutan tareas en remoto cada vez que hago un _push_.
+La automatización del proceso de generación de la documentación de MkDocs me pareció muy útil, ya que convierte el repositorio en algo dinámico. Subo cambios y automáticamente se actualiza la web sin que yo tenga que intervenir.
 
-En el apartado de Git he aprendido a:
+## 3. Conclusiones sobre GitHub Pages
 
-- Crear y clonar un repositorio en GitHub.
-- Organizar correctamente la estructura de un proyecto.
-- Realizar commits claros y subir cambios a la rama principal.
-- Gestionar colaboradores y permisos.
+GitHub Pages ha sido una forma muy sencilla de publicar la documentación de manera pública.
+Me ha servido para ver en la práctica cómo una simple rama como _gh-pages_ puede convertirse en una web completa sin necesidad de servidores propios ni configuraciones complicadas.
+También me ha ayudado a entender lo importante que es mantener bien organizada la documentación y los enlaces internos, porque cualquier error en las rutas hace que la página deje de funcionar al completo o por partes, dependiendo lo que se ponga mal en la ruta.
 
-Esto me ha ayudado a entender la importancia del control de versiones para mantener un proyecto ordenado, trazable y colaborativo.
+## 4. Conclusiones sobre Docker y NGINX
 
----
+Crear un contenedor con Docker para servir la documentación ha sido útil para reforzar conceptos básicos de virtualización y  despliegue de servicios.
+Aunque pueda parecer innecesario teniendo GitHub Pages, este ejercicio es necesario y aporta porque me ha ayudado a entender cómo funcionan los volúmenes _bind mount_ y a cómo levantar un servicio web real dentro de un contenedor.
+Al montar la carpeta de la documentación dentro de NGINX he podido comprobar lo versátil que es Docker, ya que con un solo comando tienes un servidor web completamente funcional.
 
-## ⚙️ GitHub Actions — Automatización
+## Conclusión General
 
-Mediante la creación de un workflow he visto cómo:
-
-- Automatizar la generación de documentación con MkDocs.
-- Publicar el resultado en la rama `gh-pages` con cada `push`.
-
-Este proceso elimina tareas manuales y asegura que la documentación siempre esté actualizada.
-
----
-
-## 🌐 GitHub Pages — Publicación de la documentación
-
-También he aprendido a:
-
-- Configurar GitHub Pages para usar la rama `gh-pages`.
-- Publicar una web estática accesible desde cualquier navegador.
-
-Gracias a esto, la documentación del proyecto queda disponible en línea de forma sencilla y profesional.
-
----
-
-## 🐳 Docker + NGINX — Despliegue local
-
-El apartado de Docker me ha permitido aprender a:
-
-- Ejecutar contenedores a partir de una imagen oficial (NGINX).
-- Montar volúmenes para servir archivos estáticos generados por MkDocs.
-- Verificar el funcionamiento de un servidor web en `localhost:8085`.
-
-Este ejercicio ha sido esencial para entender cómo se despliega una aplicación o sitio web en un entorno aislado y reproducible.
-
----
-
-## ✔ Aprendizaje global
-
-En conjunto, esta práctica me ha servido para comprender:
-
-- Cómo documentar correctamente un proyecto.
-- Cómo automatizar procesos mediante GitHub Actions.
-- Cómo publicar documentación con GitHub Pages.
-- Cómo desplegar una web estática con Docker y NGINX.
-
-Ha sido una experiencia completa que combina documentación, automatización, publicación y despliegue, permitiéndome visualizar un flujo de trabajo más profesional y seguro.
-
----
+La actividad me ha permitido practicar todo el ciclo básico de un proyecto actual en el que se incluyen: control de versiones, automatización, publicación de documentación y despliegue con contenedores.
+Se entiende mejor cómo encaja cada herramienta dentro del proceso de desarrollo seguro.

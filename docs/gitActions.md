@@ -1,4 +1,4 @@
-#2. GitHub Actions – Automatización con Workflow
+# GitHub Actions – Automatización con Workflow
 
 En este apartado documento y recopilo  **todo el desarrollo del apartado GitHub Actions**, explicando paso a paso cómo he configurado el _workflow_ que genera la documentación con MkDocs y la publica automáticamente en la rama `gh-pages`.
 
@@ -184,6 +184,4 @@ Es posible que la ejecución del _workflow_ de un error en el log relacionado co
 
 ![permisos](img/imagenes_gitActions/permisos.jpg)
 
----
-**Haber realizado esta automatización me permite mantener el repositorio documentado, organizado y con actualizaciones automáticas.**
 ---

@@ -1,4 +1,4 @@
-#3. Publicación de la Documentación con GitHub Pages
+# Publicación de la Documentación con GitHub Pages
 
 En este apartado documento y recopilo **todo el desarrollo del apartado GitHub Pages**, explicando cómo he configurado la publicación automática de la documentación generada con MkDocs en la rama _gh-pages_.
 

@@ -1,4 +1,4 @@
-#1. Git — Creación del repositorio y estructura
+#Git — Creación del repositorio y estructura
 
 En este apartado documento y recopilo **todo el desarrollo del apartado Git**, explicando paso a paso cómo he creado el repositorio, cómo he clonado en máquina local y cómo he construido la estructura de directorios y archivos.
 
@@ -158,6 +158,4 @@ Este commit marca el punto inicial de la actividad, con todos los archivos inici
 
 ![subir al repositorio](img/imagenes_git/subir_repositorio.png)
 
----
-**En este apartado asiento la base para trabajar adecuadamente con automatización, publicación y despliegue en los apartados siguientes.**
 ---

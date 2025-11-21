@@ -119,5 +119,3 @@ Una vez finalizado el trabajo com el contenedor, procedo a detenerlo de forma co
 ![eliminar](img/imagenes_docker/eliminar.png)
 
 ---
-**Con este apartado he podido desplegar de forma segura y reproducible una web estática generada con MkDocs utilizando Docker y NGINX.**
----
