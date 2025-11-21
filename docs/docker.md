@@ -51,105 +51,73 @@ Rercuerdo que el comando _git fetch_ descarga del repositorio remoto la informac
 
 ---
 
-# 🚀 3. Ejecución del contenedor NGINX
+#3. Ejecuto del contenedor NGINX
 
-Una vez situado en la carpeta correcta (la rama `gh-pages`), se levantó un contenedor NGINX utilizando **bind mount**:
+Una vez situado en la rama _gh-pages_, levanto el contenedor NGINX utilizando _bind mount_. De esta forma, Docker monta una carpeta mi máquina local dentro del contenedor, en tiempo real.
 
-```bash
-docker run -d   --name PPSUnidad0-Tarea_Tu_nombre   -p 8085:80   -v $(pwd):/usr/share/nginx/html   nginx
+Lo hago ejecutando estos comandos:
+
 ```
-
-## 📌 Explicación del comando
-
-- **-d** → Ejecuta el contenedor en segundo plano.  
-- **--name** → Nombre obligatorio del contenedor.  
-- **-p 8085:80** → Expone el puerto 80 interno como 8085 en el host.  
-- **-v $(pwd):/usr/share/nginx/html** → Monta la carpeta actual donde está `index.html`.  
-- **nginx** → Usa la imagen oficial del servidor NGINX.
-
----
-
-# 🧪 4. Comprobaciones tras el despliegue
-
-### ✔ 4.1 Ver contenedores activos
-
-```bash
+docker run -d \  
+ --name PPSUnidad0-Tarea_Oscar  
+ -p 8085:80 \  
+ -v /home/PPOscar/Escritorio/PPS-Unidad0-Tarea-Oscar:/usr/share/nginx/html \  
+ nginx
 docker ps
 ```
 
-Salida esperada:
+A continuación, explico lo que realiza el comando, por partes:
+
+- _docker run -d_ --> Ejecuta el contenedor en segundo plano.
+- _--name_ --> Es el nombre del contenedor.
+- _-p 8085:80_ --> El puerto 80 queda como el 8085 en mi máquina local.
+- _-v ruta:/usr/share/ngix/html_ --> Monta la carpeta actual en _index.html_
+- _-nginx_ --> Es la imagen del servidor NGINX.
+- _docker ps_ --> Muestro los contenedores en ejecución en mi máquina.
+
+![Ejecucion_docker](img/imagenes_docker/docker_ejecucion.png)
+
+--- 
+## 3.1 Inspecciono configuración del contenedor
+
+Con el comando _docker inspect_ obtengo toda la información del contenedor.
 
 ```
-PPSUnidad0-Tarea_Tu_nombre   nginx   Up ...   0.0.0.0:8085->80/tcp
-```
-
-### ✔ 4.2 Inspeccionar configuración del contenedor
-
-```bash
 docker inspect PPSUnidad0-Tarea_Tu_nombre
 ```
+![inspect](img/imagenes_docker/inspect.png)
 
-Información clave que se verifica:
 
-- Volumen montado  
-- Imagen utilizada  
-- Puertos expuestos  
-- Estado del contenedor  
+Dentro de toda la información obtenida, he utilizado unos filtros para, con _docker inspect_ mostrar únicamente información del volumen montado, la imagen utilizada, los puertos expuestos y el estado del contenedor:
+
+```
+docker inspect --format='Estado: {{.State.Status}}
+Imagen: {{.Config.Image}}
+Puertos: {{json .NetworkSettings.Ports}}
+Volúmenes: {{json .Mounts}}' PPSUnidad0-Tarea_Oscar
+```
+![inspect_filtro](img/imagenes_docker/inspect_filtro.png)
 
 ---
 
-# 🌐 5. Visualización de la documentación
+### 3.1.1 Visualizar la documentación
 
-Para comprobar que la documentación se sirve correctamente desde NGINX:
+Para comprobar que la documentación se muestra correctamente desde NGINX, accedo a mi localhost por el puerto 8085:
 
 ```
 http://localhost:8085
 ```
 
-La página debe mostrarse igual que en GitHub Pages.
+![localhost](img/imagenes_docker/localhost.png)
 
 ---
 
-# 🧹 6. Gestión del contenedor
+# 4. Parar y eliminar el contenedor
 
-## ⛔ Detener el contenedor
+Una vez finalizado el trabajo com el contenedor, procedo a detenerlo de forma controlada y a eliminarle.
 
-```bash
-docker stop PPSUnidad0-Tarea_Tu_nombre
-```
-
-## 🗑️ Eliminar el contenedor
-
-```bash
-docker rm PPSUnidad0-Tarea_Tu_nombre
-```
+![eliminar](img/imagenes_docker/eliminar.png)
 
 ---
-
-# 📝 7. Conclusiones del apartado Docker
-
-Gracias a este proceso he aprendido:
-
-### 🔹 Cómo funciona un servidor NGINX sirviendo archivos estáticos  
-NGINX es ideal para mostrar HTML, CSS y JavaScript de manera rápida y ligera.
-
-### 🔹 Diferencia entre ramas de desarrollo y ramas de despliegue  
-- `main` contiene el código fuente.  
-- `gh-pages` contiene la web final.  
-Docker debe trabajar **siempre** con esta última.
-
-### 🔹 Montaje de volúmenes en Docker  
-El uso de:
-
-```bash
--v $(pwd):/usr/share/nginx/html
-```
-
-me enseñó cómo compartir carpetas entre mi máquina y el contenedor.
-
-### 🔹 Reproducir un entorno real de producción  
-Pude ver la documentación funcionando igual que lo haría en un servidor real.
-
-En resumen, este apartado me ha permitido entender cómo desplegar de forma segura, reproducible y profesional una web estática generada con MkDocs utilizando Docker y NGINX.
-
+Con este apartado he podido desplegar de forma segura y reproducible una web estática generada con MkDocs utilizando Docker y NGINX.
 ---
