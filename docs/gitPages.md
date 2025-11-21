@@ -72,90 +72,17 @@ Al abrir esa URL, mi web generada por MkDocs está disponible públicamente.
 
 ---
 
-# 🔍 5. Verificación del funcionamiento
+#5. Verificación del funcionamiento
 
-Para comprobar que GitHub Pages está sirviendo correctamente la documentación:
+Para comprobar que GitHub Pages está sirviendo correctamente la documentación, ejecuto lo siguiente:
 
-### ✔ Verificar que la rama `gh-pages` contiene archivos HTML
 
-```bash
+```
 git checkout gh-pages
 ls -la
 ```
 
-Deben aparecer:
-
-- `index.html`
-- `404.html`
-- `css/`
-- `js/`
-- `search/`
-
-### ✔ Entrar en la URL pública
-
-Basta con abrirla en el navegador.  
-Si la página se ve correctamente, GitHub Pages está funcionando.
-
----
-
-# 🛠 6. Problemas comunes y soluciones
-
-### ❗ La página devuelve 404  
-Asegúrate de que:
-
-- Se ha seleccionado **Branch: gh-pages**
-- El workflow se ha ejecutado al menos una vez
-- La rama contiene un `index.html`
-
----
-
-### ❗ La web carga pero sin estilos  
-Esto ocurre si:
-
-- Se usan rutas erróneas en `mkdocs.yml`
-- Se movieron manualmente carpetas dentro de `gh-pages`
-
-Solución: no modificar manualmente la rama `gh-pages`.
-
----
-
-### ❗ La web muestra contenido raro  
-Esto sucede cuando en el `nav:` de `mkdocs.yml` se usan rutas absolutas erróneas.
-
-Debe ser así:
-
-```yaml
-nav:
-  - Inicio: index.md
-  - Git: git.md
-```
-
-NO así:
-
-```yaml
-nav:
-  - Inicio: docs/index.md
-```
-
----
-
-# 📝 7. Conclusión del apartado GitHub Pages
-
-Gracias a este apartado he aprendido:
-
-### 🔹 Cómo publicar documentación automáticamente  
-GitHub Pages permite tener la web accesible en todo momento sin subir nada manualmente.
-
-### 🔹 Cómo funciona la rama `gh-pages`  
-Es una rama especial dedicada a la publicación, generada automáticamente por el workflow.
-
-### 🔹 Cómo verificar el despliegue  
-Revisando la ejecución del workflow y la configuración de Pages.
-
-### 🔹 Cómo resolver problemas frecuentes  
-Especialmente los relacionados con rutas y el menú de navegación.
-
-GitHub Pages es una herramienta muy útil y profesional para publicar documentación estática de manera rápida, automática y gratuita.
+![comprobacion](img/imagenes_gitPages/comprobacion.png)
 
 ---
 
