@@ -1,25 +1,30 @@
-# 🐳 Desarrollo completo del apartado Docker
-## Despliegue local con Docker y NGINX
+# Desarrollo completo del apartado Docker
 
-En este documento recojo **todo el proceso completo** realizado en el apartado de Docker, incluyendo instalación, comandos utilizados, comprobaciones y conclusiones finales. Todo está expresado utilizando **Markdown enriquecido**, con listas, bloques de código y explicaciones claras.
+En este apartado documento y recopilo **todo el proceso** realizado en el apartado de Docker, incluyendo instalación, comandos utilizados y comprobaciones.
 
 ---
 
-# 🔧 1. Preparación del entorno en Kali Linux
+# 1. Preparación del entorno
 
-Antes de comenzar, se comprobó si Docker estaba instalado:
+En primer lugar, compruebo que Docker esté instalado:
 
-```bash
+```
 docker --version
 ```
+![Colaborador](img/imagenes_docker/version.png)
 
-En caso de no estar disponible, se procedió a su instalación:
+En caso de no estar instalado, podemos instalarlo con los siguientes comandos:
 
-```bash
+```
 sudo apt update
-sudo apt install docker.io -y
-sudo systemctl enable --now docker
-sudo usermod -aG docker $USER
+sudo apt install -y docker.io
+# instalamos también docker-cli 
+sudo apt install docker-cli
+docker
+# Nos debe de mostrar la versión de docker instalada
+sudo usermod -aG docker PPSOscar
+systemctl restart docker.socket
+systemctl restart docker.service
 ```
 
 > ⚠️ **Nota:** Tras añadir el usuario al grupo `docker` es necesario cerrar sesión y volver a entrar.

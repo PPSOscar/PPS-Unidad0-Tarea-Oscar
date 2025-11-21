@@ -49,8 +49,6 @@ Muestro el usuario de mi profesor ya añadido como colaborador:
 
 #4. Clonación del repositorio en mi máquina.
 
-Indicar en este punto que la actividad la estoy realizando en una máquina Kali Linux.
-
 Antes de realizar la clonación del repositorio, es imprescindible realizar estos dos pasos previos:
 
 - Inicializar las variables
