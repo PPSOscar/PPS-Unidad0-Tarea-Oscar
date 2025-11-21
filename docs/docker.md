@@ -47,7 +47,7 @@ ls -la
 ```
 Rercuerdo que el comando _git fetch_ descarga del repositorio remoto la información nueva
 
-![ghpages](img/imagenes_docker/ghpages.png)
+![ghpages](img/imagenes_docker/ghpages.jpg)
 
 ---
 
