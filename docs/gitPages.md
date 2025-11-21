@@ -59,6 +59,7 @@ Mi URL de acceso a la documentación es la siguiente:
 ```
 https://ppsoscar.github.io/PPS-Unidad0-Tarea-Oscar/gitPages/
 ```
+[github.io](https://ppsoscar.github.io/PPS-Unidad0-Tarea-Oscar/gitPages/)
 
 Es esta URL:
 
@@ -66,6 +67,8 @@ Es esta URL:
 - _PPS-Unidad0-Tarea-Oscar_ = nombre del repositorio
 
 Al abrir esa URL, mi web generada por MkDocs está disponible públicamente.
+
+![web](img/imagenes_gitPages/web.png)
 
 ---
 
