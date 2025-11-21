@@ -34,7 +34,7 @@ docker ps
 
 ---
 
-#2. Obtención de los archivos HTML (rama `gh-pages`)
+#2. Obtención de los archivos HTML (rama gh-pages)
 
 La documentación generada por MkDocs no se encuentra en la rama _main_, sino en la rama _gh-pages_, producida automáticamente por GitHub Actions.
 
