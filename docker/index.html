@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>4. Docker & NGINX - PPS - Unidad 0 - Tarea RA5 - Óscar Polo Fernández</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">PPS - Unidad 0 - Tarea RA5 - Óscar Polo Fernández</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../git/" class="nav-link">1. Creación del Repositorio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../gitActions/" class="nav-link">2. GitHub Actions</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../gitPages/" class="nav-link">3. GitHub Pages</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">4. Docker & NGINX</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../conclusiones/" class="nav-link">5. Conclusiones</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../gitPages/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../conclusiones/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#desarrollo-completo-del-apartado-docker" class="nav-link">Desarrollo completo del apartado Docker</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#1-preparacion-del-entorno" class="nav-link">1. Preparación del entorno</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#2-obtencion-de-los-archivos-html-rama-gh-pages" class="nav-link">2. Obtención de los archivos HTML (rama gh-pages)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#3-ejecuto-del-contenedor-nginx" class="nav-link">3. Ejecuto del contenedor NGINX</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#31-inspecciono-configuracion-del-contenedor" class="nav-link">3.1 Inspecciono configuración del contenedor</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#4-parar-y-eliminar-el-contenedor" class="nav-link">4. Parar y eliminar el contenedor</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#con-este-apartado-he-podido-desplegar-de-forma-segura-y-reproducible-una-web-estatica-generada-con-mkdocs-utilizando-docker-y-nginx" class="nav-link">Con este apartado he podido desplegar de forma segura y reproducible una web estática generada con MkDocs utilizando Docker y NGINX.</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="desarrollo-completo-del-apartado-docker">Desarrollo completo del apartado Docker</h1>
+<p>En este apartado documento y recopilo <strong>todo el proceso</strong> realizado en el apartado de Docker, incluyendo instalación, comandos utilizados y comprobaciones.</p>
+<hr />
+<h1 id="1-preparacion-del-entorno">1. Preparación del entorno</h1>
+<p>En primer lugar, compruebo que Docker esté instalado:</p>
+<pre><code>docker --version
+</code></pre>
+<p>En caso de no estar instalado, podemos instalarlo con los siguientes comandos:</p>
+<pre><code>sudo apt update
+sudo apt install -y docker.io
+# instalamos también docker-cli 
+sudo apt install docker-cli
+docker
+# Nos debe de mostrar la versión de docker instalada
+sudo usermod -aG docker PPSOscar
+systemctl restart docker.socket
+systemctl restart docker.service
+</code></pre>
+<p>Compruebo que el servicio está en funcionamiento:</p>
+<pre><code class="language-bash">docker ps
+</code></pre>
+<p><img alt="version" src="../img/imagenes_docker/version2.png" /></p>
+<hr />
+<h1 id="2-obtencion-de-los-archivos-html-rama-gh-pages">2. Obtención de los archivos HTML (rama <code>gh-pages</code>)</h1>
+<p>La documentación generada por MkDocs no se encuentra en la rama <em>main</em>, sino en la rama <em>gh-pages</em>, producida automáticamente por GitHub Actions.</p>
+<p>Cambio a la rama <em>gh-pages</em> y listo su contenido:</p>
+<pre><code>git fetch
+git checkout gh-pages
+ls -la
+</code></pre>
+<p>Rercuerdo que el comando <em>git fetch</em> descarga del repositorio remoto la información nueva</p>
+<p><img alt="ghpages" src="img/imagenes_docker/ghpages.png" /></p>
+<hr />
+<h1 id="3-ejecuto-del-contenedor-nginx">3. Ejecuto del contenedor NGINX</h1>
+<p>Una vez situado en la rama <em>gh-pages</em>, levanto el contenedor NGINX utilizando <em>bind mount</em>. De esta forma, Docker monta una carpeta mi máquina local dentro del contenedor, en tiempo real.</p>
+<p>Lo hago ejecutando estos comandos:</p>
+<pre><code>docker run -d \  
+ --name PPSUnidad0-Tarea_Oscar  
+ -p 8085:80 \  
+ -v /home/PPOscar/Escritorio/PPS-Unidad0-Tarea-Oscar:/usr/share/nginx/html \  
+ nginx
+docker ps
+</code></pre>
+<p>A continuación, explico lo que realiza el comando, por partes:</p>
+<ul>
+<li><em>docker run -d</em> --&gt; Ejecuta el contenedor en segundo plano.</li>
+<li><em>--name</em> --&gt; Es el nombre del contenedor.</li>
+<li><em>-p 8085:80</em> --&gt; El puerto 80 queda como el 8085 en mi máquina local.</li>
+<li><em>-v ruta:/usr/share/ngix/html</em> --&gt; Monta la carpeta actual en <em>index.html</em></li>
+<li><em>-nginx</em> --&gt; Es la imagen del servidor NGINX.</li>
+<li><em>docker ps</em> --&gt; Muestro los contenedores en ejecución en mi máquina.</li>
+</ul>
+<p><img alt="Ejecucion_docker" src="../img/imagenes_docker/docker_ejecucion.png" /></p>
+<hr />
+<h2 id="31-inspecciono-configuracion-del-contenedor">3.1 Inspecciono configuración del contenedor</h2>
+<p>Con el comando <em>docker inspect</em> obtengo toda la información del contenedor.</p>
+<pre><code>docker inspect PPSUnidad0-Tarea_Tu_nombre
+</code></pre>
+<p><img alt="inspect" src="../img/imagenes_docker/inspect.png" /></p>
+<p>Dentro de toda la información obtenida, he utilizado unos filtros para, con <em>docker inspect</em> mostrar únicamente información del volumen montado, la imagen utilizada, los puertos expuestos y el estado del contenedor:</p>
+<pre><code>docker inspect --format='Estado: {{.State.Status}}
+Imagen: {{.Config.Image}}
+Puertos: {{json .NetworkSettings.Ports}}
+Volúmenes: {{json .Mounts}}' PPSUnidad0-Tarea_Oscar
+</code></pre>
+<p><img alt="inspect_filtro" src="../img/imagenes_docker/inspect_filtro.png" /></p>
+<hr />
+<h3 id="311-visualizar-la-documentacion">3.1.1 Visualizar la documentación</h3>
+<p>Para comprobar que la documentación se muestra correctamente desde NGINX, accedo a mi localhost por el puerto 8085:</p>
+<pre><code>http://localhost:8085
+</code></pre>
+<p><img alt="localhost" src="../img/imagenes_docker/localhost.png" /></p>
+<hr />
+<h1 id="4-parar-y-eliminar-el-contenedor">4. Parar y eliminar el contenedor</h1>
+<p>Una vez finalizado el trabajo com el contenedor, procedo a detenerlo de forma controlada y a eliminarle.</p>
+<p><img alt="eliminar" src="../img/imagenes_docker/eliminar.png" /></p>
+<hr />
+<h2 id="con-este-apartado-he-podido-desplegar-de-forma-segura-y-reproducible-una-web-estatica-generada-con-mkdocs-utilizando-docker-y-nginx"><strong>Con este apartado he podido desplegar de forma segura y reproducible una web estática generada con MkDocs utilizando Docker y NGINX.</strong></h2></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
