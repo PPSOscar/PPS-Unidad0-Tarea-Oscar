@@ -11,8 +11,6 @@ En primer lugar, compruebo que Docker esté instalado:
 ```
 docker --version
 ```
-![Colaborador](img/imagenes_docker/version.png)
-
 En caso de no estar instalado, podemos instalarlo con los siguientes comandos:
 
 ```
@@ -27,40 +25,29 @@ systemctl restart docker.socket
 systemctl restart docker.service
 ```
 
-> ⚠️ **Nota:** Tras añadir el usuario al grupo `docker` es necesario cerrar sesión y volver a entrar.
-
-Comprobación final del servicio:
+Compruebo que el servicio está en funcionamiento:
 
 ```bash
 docker ps
 ```
+![version](img/imagenes_docker/version2.png)
 
 ---
 
-# 📁 2. Obtención de los archivos HTML (rama `gh-pages`)
+#2. Obtención de los archivos HTML (rama `gh-pages`)
 
-La documentación generada por MkDocs no se encuentra en la rama `main`, sino en la rama `gh-pages`, producida automáticamente por GitHub Actions.
+La documentación generada por MkDocs no se encuentra en la rama _main_, sino en la rama _gh-pages_, producida automáticamente por GitHub Actions.
 
-Cambio de rama:
+Cambio a la rama _gh-pages_ y listo su contenido:
 
-```bash
+```
 git fetch
 git checkout gh-pages
-```
-
-Listado de archivos generados:
-
-```bash
 ls -la
 ```
+Rercuerdo que el comando _git fetch_ descarga del repositorio remoto la información nueva
 
-Archivos esperados:
-
-- `index.html`
-- `404.html`
-- `css/`
-- `js/`
-- `search/`
+![ghpages](img/imagenes_docker/ghpages.png)
 
 ---
 

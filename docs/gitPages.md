@@ -27,6 +27,8 @@ Compruebo que la rama existe con el siguiente comando:
 git fetch
 git branch -a
 ```
+Con _git fetch_ obtengo en el repositorio local la información nueva.
+
 En mi caso, se muestran ambas ramas y se indica con * que estoy situado en la rama _main_.
 
 ![rama](img/imagenes_gitPages/rama.png)
